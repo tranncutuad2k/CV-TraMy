@@ -12,7 +12,7 @@
 ## Chạy
 Mở `index.html` bằng trình duyệt. Không cần npm, Node.js hoặc build.
 
-## Chỉnh sửa
+## Chỉnh sửa 
 - Nội dung: sửa file HTML tương ứng.
 - Giao diện: sửa `css/style.css`.
 - Hành vi: sửa `js/main.js`.
