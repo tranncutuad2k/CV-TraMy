@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#5546e8">
+    <title>Liên hệ | Nguyễn Trà My</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-wrap"><a class="brand" href="../index.html"><span class="brand-icon">M</span><span>Nguyễn Trà
+                    My</span></a><button class="menu-toggle" aria-label="Mở menu" aria-expanded="false">☰</button>
+            <nav class="nav"><a class="nav-link " href="../index.html">Trang Chủ</a><a class="nav-link "
+                    href="skills.html">Kỹ Năng & Học Vấn</a><a class="nav-link " href="experience.html">Kinh
+                    Nghiệm</a><a class="nav-link active" href="contact.html">Liên Hệ</a></nav>
+            <div class="nav-tools"><button id="theme-toggle" class="icon-btn" aria-label="Đổi giao diện">◐</button><a
+                    class="btn btn-small" href="../assets/Nguyen-Tra-My-CV.pdf" download>Tải CV ↓</a></div>
+        </div>
+    </header>
+    <main>
+        <section class="page-hero">
+            <div class="container"><span class="section-kicker">HỒ SƠ CÁ NHÂN / 04</span>
+                <h1>Liên hệ</h1>
+                <p>Sẵn sàng kết nối và trao đổi về cơ hội nghề nghiệp.</p>
+            </div>
+        </section>
+        <section class="section container">
+            <div class="contact-grid">
+                <article class="card">
+                    <div class="section-heading align-left"><span class="section-kicker">KẾT NỐI</span>
+                        <h2>Thông tin liên hệ</h2>
+                        <p>Các thông tin được cung cấp trong CV.</p>
+                    </div>
+                    <div class="contact-item"><span class="contact-icon">⌖</span>
+                        <div><small>Địa chỉ</small>
+                            <p>Thôn Hoàng Xá, xã Khánh Hà, huyện Thường Tín, Thành phố Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="contact-item"><span class="contact-icon">✉</span>
+                        <div><small>Email</small>
+                            <p><a href="mailto:mymit104@gmail.com">mymit104@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item"><span class="contact-icon">☎</span>
+                        <div><small>Điện thoại</small>
+                            <p><a href="tel:0337611406">0337611406</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item"><span class="contact-icon">◷</span>
+                        <div><small>Ngày sinh</small>
+                            <p>02/12/2001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item"><span class="contact-icon">♙</span>
+                        <div><small>Giới tính</small>
+                            <p>Nữ</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="section-heading align-left"><span class="section-kicker">GỬI LỜI NHẮN</span>
+                        <h2>Biểu mẫu liên hệ</h2>
+                        <p>Biểu mẫu sẽ mở ứng dụng email mặc định trên thiết bị của bạn.</p>
+                    </div>
+                    <!-- Giữ nguyên cấu trúc form ban đầu của bạn -->
+                    <form id="contact-form"><label for="name">Họ và tên người liên hệ</label><input id="name" name="name" required
+                            placeholder="Tên của bạn"><label for="email">Số điện thoại người liên hệ</label><input id="email" name="email"
+                            type="tel" required placeholder="Số điện thoại của bạn"><label for="message">Nội
+                            dung</label><textarea id="message" name="message" rows="5" required
+                            placeholder="Bạn muốn trao đổi điều gì?"></textarea><button class="btn" type="submit">Tạo
+                            email ↗</button></form>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div><strong>Nguyễn Trà My</strong>
+            <p>Kế toán nội bộ</p>
+        </div><span>© <span id="year"></span> Nguyễn Trà My · CV cá nhân</span>
+    </footer><button id="back-top" class="back-top" aria-label="Lên đầu trang">↑</button>
+    
+    <script src="../js/main.js"></script>
+
+    <!-- Đoạn JavaScript xử lý tự động điền form gửi mail -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            // Ngăn form tải lại trang web mặc định
+            event.preventDefault();
+
+            // 1. Email nhận (Địa chỉ mail của bạn)
+            const emailTo = "mymit104@gmail.com";
+
+            // 2. Lấy thông tin người dùng nhập vào dựa trên các id: name, email, message
+            const senderName = document.getElementById('name').value;
+            const senderEmail = document.getElementById('email').value;
+            const messageContent = document.getElementById('message').value;
+
+            // 3. Thiết lập tiêu đề mail
+            const subject = `[CV TRÀ MY] Phản hồi CV từ: ${senderName}`;
+
+            // 4. Thiết lập nội dung text bên trong mail (Sử dụng \n để xuống dòng hợp lệ)
+            const bodyText = `Họ và tên người liên hệ: ${senderName}\n` +
+                             `Số điện thoại người liên hệ: ${senderEmail}\n\n` +
+                             `Nội dung lời nhắn:\n${messageContent}`;
+
+            // 5. Mã hóa chuỗi để bảo toàn font Tiếng Việt có dấu khi chuyển tiếp sang ứng dụng mail
+            const encodedSubject = encodeURIComponent(subject);
+            const encodedBody = encodeURIComponent(bodyText);
+
+            // 6. Điều hướng trình duyệt kích hoạt ứng dụng email và fill thông tin
+            window.location.href = `mailto:${emailTo}?subject=${encodedSubject}&body=${encodedBody}`;
+        });
+    </script>
+</body>
+
+</html>
